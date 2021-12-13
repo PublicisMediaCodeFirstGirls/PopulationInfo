@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, Response
 import country_data
 
@@ -28,5 +29,7 @@ def country_info(name):
 
 
 
-
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
