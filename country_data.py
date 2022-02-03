@@ -115,6 +115,7 @@ class CountriesData:
         # Rotate the tick labels and set their alignment.
         plt.setp(ax.get_xticklabels(), rotation=25, ha="right", rotation_mode="anchor")
         ax.set_title("Country Statistic Correlation Heatmap")
+        fig.tight_layout()
         heat_map_chart = 'static/heat_map.png'
         plt.savefig(heat_map_chart)
         return heat_map_chart
@@ -124,7 +125,8 @@ class CountriesData:
         df.head(25)[['Country (or dependency)', 'Migration_Per_Capita']].plot.bar(x='Country (or dependency)')
         plt.ylabel("Migrants (in/out) / Population")
         plt.title("Migration rate, top 25 most populous countries")
-        plt.suptitle("Data demonstrates the highest levels of immigration occur in Germany, the UK, Turkey and the USA")
+        plt.suptitle(f'Data demonstrates the highest levels of immigration\n occur in Germany, the UK, Turkey and the USA')
+        plt.tight_layout()
         chart1_chart = 'static/chart1.png'
         plt.savefig(chart1_chart)
         return chart1_chart
@@ -136,7 +138,8 @@ class CountriesData:
         plt.ylabel("Migrants (in/out) / Population")
         plt.title("Migration rate and population growth, top 25 most populous countries")
         plt.suptitle(
-            "However, those countries with the highest migration rate are not experiencing heavy population growth")
+            f'However, those countries with the highest migration\n rate are not experiencing heavy population growth')
+        plt.tight_layout()
         chart2_chart = 'static/chart2.png'
         plt.savefig(chart2_chart)
         return chart2_chart
@@ -146,8 +149,9 @@ class CountriesData:
         df.head(25)[['Migration_Per_Capita', 'Med. Age']].plot.scatter(x='Migration_Per_Capita', y='Med. Age')
         plt.ylabel("Average Age")
         plt.xlabel("Migrants (in/out) / Population")
-        plt.title("Migration rate vs. average age of population, top 25 most populous countries")
-        plt.suptitle("In fact, those countries with the highest migration rate have ageing populations, and are therefore in need of migrants of working age")
+        plt.title(f'Migration rate vs. average age of population\n Top 25 most populous countries')
+        plt.suptitle(f'In fact, those countries with the highest migration rate have\n ageing populations, and are therefore in need of migrants of working age')
+        plt.tight_layout()
         chart3_chart = 'static/chart3.png'
         plt.savefig(chart3_chart)
         return chart3_chart

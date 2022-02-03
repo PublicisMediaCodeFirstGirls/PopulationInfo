@@ -14,6 +14,7 @@ app = Flask(__name__)
 # from flask import Response
 # import numpy as np
 
+
 @app.route('/')
 def home():
     countries_list = country_data.sorted_country
@@ -28,8 +29,7 @@ def country_info(name):
     return render_template('country_info.html', country=name, countrydetails=countrydetails)
 
 
-
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
+            port=os.environ.get("PORT"),
             debug=True)

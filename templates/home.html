@@ -8,27 +8,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body class="bg-dark text-light">
+<body class="bg-dark text-light d-block">
 
-    <h1>Countries</h1>
-    <p>which country would you like to learn about?</p>
+    <div class="text-center">
+        <h1>Countries</h1>
+        <p>which country would you like to learn about?</p>
 
-    <div class="btn-group">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-        Select Country
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end">
-          {% for country in countries %}
-            <li><a class="dropdown-item" href="/countries/{{ country }}">{{ country }}</a></li>
-          {% endfor %}
-      </ul>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+            Select Country
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+              {% for country in countries %}
+                <li><a class="dropdown-item" href="/countries/{{ country }}">{{ country }}</a></li>
+              {% endfor %}
+          </ul>
+        </div>
     </div>
 
     <div class="container text-center pt-3">
-        <img src="{{ data.heat_map() }}" width="250">
-        <img src="{{ data.chart1() }}" width="250">
-        <img src="{{ data.chart2() }}" width="250">
-        <img src="{{ data.chart3() }}" width="250">
+        <img src="{{ data.heat_map() }}" width="500" class="p-2">
+        <img src="{{ data.chart1() }}" width="500"class="p-2">
+        <img src="{{ data.chart2() }}" width="500"class="p-2">
+        <img src="{{ data.chart3() }}" width="500"class="p-2">
     </div>
 </body>
 </html>
